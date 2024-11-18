@@ -113,110 +113,110 @@ export const LAST_WEEK_METRICS: Record<string, TeamMember['metrics']> = {
     tardiness: 17, 
     activetrack: 7.2,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.5 },
-      '2024-11-12': { tardiness: 17, activetrack: 7.2 },
-      '2024-11-13': { tardiness: 0, activetrack: 7.1 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.4 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+      '2024-11-11': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-12': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-13': { tardiness: 17, activetrack: 7.2 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.7 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.6 }
     }
   },
   '3': { 
     tardiness: 0, 
     activetrack: 6.9,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.0 },
-      '2024-11-12': { tardiness: 0, activetrack: 6.8 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.7 }
+      '2024-11-11': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-12': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.3 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.0 }
     }
   },
   '4': { 
     tardiness: 0, 
     activetrack: 7.5,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.6 },
+      '2024-11-11': { tardiness: 0, activetrack: 7.9 },
       '2024-11-12': { tardiness: 0, activetrack: 7.4 },
-      '2024-11-13': { tardiness: 0, activetrack: 7.5 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.8 },
-      '2024-11-15': { tardiness: 0, activetrack: 7.2 }
+      '2024-11-13': { tardiness: 0, activetrack: 7.3 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.6 },
+      '2024-11-15': { tardiness: 0, activetrack: 7.4 }
     }
   },
   '5': { 
     tardiness: 13, 
     activetrack: 7.2,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.3 },
-      '2024-11-12': { tardiness: 13, activetrack: 7.1 },
-      '2024-11-13': { tardiness: 0, activetrack: 7.2 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.4 },
-      '2024-11-15': { tardiness: 0, activetrack: 7.0 }
+      '2024-11-11': { tardiness: 0, activetrack: 7.6 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.7 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-14': { tardiness: 7, activetrack: 7.3 },
+      '2024-11-15': { tardiness: 6, activetrack: 7.2 }
     }
   },
   '6': { 
     tardiness: 0, 
     activetrack: 6.4,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 6.5 },
-      '2024-11-12': { tardiness: 0, activetrack: 6.3 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.4 },
+      '2024-11-11': { tardiness: 0, activetrack: 6.3 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.7 },
       '2024-11-14': { tardiness: 0, activetrack: 6.6 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.2 }
+      '2024-11-15': { tardiness: 0, activetrack: 5.9 }
     }
   },
   '7': { 
     tardiness: 22, 
     activetrack: 6.4,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 6.6 },
-      '2024-11-12': { tardiness: 22, activetrack: 6.2 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.4 },
-      '2024-11-14': { tardiness: 0, activetrack: 6.5 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.3 }
+      '2024-11-11': { tardiness: 3, activetrack: 6.8 },
+      '2024-11-12': { tardiness: 8, activetrack: 6.9 },
+      '2024-11-13': { tardiness: 3, activetrack: 6.7 },
+      '2024-11-14': { tardiness: 3, activetrack: 5.9 },
+      '2024-11-15': { tardiness: 5, activetrack: 5.6 }
     }
   },
   '8': { 
     tardiness: 0, 
     activetrack: 7.0,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.2 },
-      '2024-11-12': { tardiness: 0, activetrack: 6.9 },
-      '2024-11-13': { tardiness: 0, activetrack: 7.0 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+      '2024-11-11': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-15': { tardiness: 0, activetrack: 7.1 }
     }
   },
   '9': { 
     tardiness: 23, 
     activetrack: 6.6,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 6.8 },
-      '2024-11-12': { tardiness: 23, activetrack: 6.4 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.6 },
-      '2024-11-14': { tardiness: 0, activetrack: 6.7 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.5 }
+      '2024-11-11': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-12': { tardiness: 8, activetrack: 6.9 },
+      '2024-11-13': { tardiness: 1, activetrack: 6.6 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.3 },
+      '2024-11-15': { tardiness: 14, activetrack: 6.8 }
     }
   },
   '10': { 
     tardiness: 6, 
     activetrack: 7.2,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.4 },
-      '2024-11-12': { tardiness: 6, activetrack: 7.0 },
+      '2024-11-11': { tardiness: 0, activetrack: 7.7 },
+      '2024-11-12': { tardiness: 6, activetrack: 6.9 },
       '2024-11-13': { tardiness: 0, activetrack: 7.2 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.3 },
-      '2024-11-15': { tardiness: 0, activetrack: 7.1 }
+      '2024-11-14': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
     }
   },
   '11': { 
     tardiness: 0, 
     activetrack: 6.9,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.0 },
-      '2024-11-12': { tardiness: 0, activetrack: 6.8 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.7 }
+      '2024-11-11': { tardiness: 0, activetrack: 7.2 },
+      '2024-11-12': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.6 }
     }
   },
   '12': { 
@@ -234,11 +234,11 @@ export const LAST_WEEK_METRICS: Record<string, TeamMember['metrics']> = {
     tardiness: 0, 
     activetrack: 6.9,
     daily: {
-      '2024-11-11': { tardiness: 0, activetrack: 7.1 },
-      '2024-11-12': { tardiness: 0, activetrack: 6.7 },
-      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
-      '2024-11-14': { tardiness: 0, activetrack: 7.0 },
-      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+      '2024-11-11': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-13': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.9 }
     }
   }
 };
@@ -306,7 +306,7 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 12,
-    fact: "Trabajé como barista y puedo hacer arte latte con más de 20 diseños diferentes",
+    fact: "Jugué en la liga de voley de Bogota",
     correctMemberId: "13"
   }
 ];
