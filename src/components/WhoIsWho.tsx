@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { FunFact, TEAM_MEMBERS, FUN_FACTS } from '@/types';
 import { Star, Trophy, ArrowRight, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface WhoIsWhoProps {
   onGameComplete: () => void;
@@ -81,7 +82,7 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
             const correctMember = TEAM_MEMBERS.find(m => m.id === fact.correctMemberId);
 
             return (
-              <div 
+              <div
                 key={fact.id}
                 className={`p-4 rounded-lg transform transition-all duration-300 hover:scale-102 ${
                   isCorrect ? 'bg-green-50' : 'bg-red-50'
@@ -107,7 +108,10 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
 
         <Button
           onClick={onGameComplete}
-          className="mt-8 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+          className={cn(
+            "mt-8 w-full bg-gradient-to-r from-purple-600 to-pink-600",
+            "hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+          )}
         >
           Continuar a Predicciones
           <ArrowRight className="ml-2 h-4 w-4" />
@@ -154,7 +158,10 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
 
         <Button
           onClick={handleNextFact}
-          className="w-full max-w-md bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+          className={cn(
+            "w-full max-w-md bg-gradient-to-r from-purple-600 to-pink-600",
+            "hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+          )}
         >
           {currentFact < randomizedFacts.length - 1 ? (
             <>
@@ -191,17 +198,20 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {shuffleArray(TEAM_MEMBERS).map((member) => (
-          <Button
+          <button
             key={member.id}
             onClick={() => handleAnswer(member.id)}
-            variant="outline"
-            className="p-4 h-auto flex flex-col items-center hover:bg-purple-50 transition-all duration-300 transform hover:scale-105"
+            className={cn(
+              "p-4 h-auto flex flex-col items-center bg-white border rounded-lg",
+              "hover:bg-purple-50 transition-all duration-300 transform hover:scale-105",
+              "focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+            )}
           >
             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-lg font-bold mb-2 text-white">
               {member.name[0]}
             </div>
             <span className="text-sm font-medium">{member.name}</span>
-          </Button>
+          </button>
         ))}
       </div>
 
