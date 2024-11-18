@@ -2,7 +2,7 @@
 'use client';
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { FunFact, TEAM_MEMBERS, FUN_FACTS } from '@/types';
+import { FunFact, TEAM_MEMBERS, FUN_FACTS, TeamMember } from '@/types';
 import { Star, Trophy, ArrowRight, ThumbsUp, ThumbsDown, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -11,7 +11,7 @@ interface WhoIsWhoProps {
   onGameComplete: () => void;
 }
 
-const TIMER_DURATION = 30;
+const TIMER_DURATION = 30; // 30 segundos para responder
 
 export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
   const [randomizedFacts, setRandomizedFacts] = useState<FunFact[]>([]);
@@ -24,6 +24,7 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
   const [timeLeft, setTimeLeft] = useState(TIMER_DURATION);
   const [isTimerActive, setIsTimerActive] = useState(true);
   const [shuffledMembers, setShuffledMembers] = useState<typeof TEAM_MEMBERS>([]);
+  const [imageError, setImageError] = useState<Record<string, boolean>>({});
 
   const shuffleArray = <T,>(array: T[]): T[] => {
     const shuffled = [...array];
@@ -62,12 +63,6 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
     return () => clearInterval(timer);
   }, [timeLeft, isTimerActive, showReveal, showResults, handleTimeUp]);
 
-  useEffect(() => {
-    if (timeLeft === 0) {
-      handleTimeUp();
-    }
-  }, [timeLeft, handleTimeUp]);
-
   const resetTimer = useCallback(() => {
     setTimeLeft(TIMER_DURATION);
     setIsTimerActive(true);
@@ -102,24 +97,34 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
     }, 300);
   }, [currentFact, randomizedFacts.length, resetTimer]);
 
-  const MemberAvatar = ({ member, className = "" }: { member: typeof TEAM_MEMBERS[0], className?: string }) => (
-    <div className={cn("rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center", className)}>
-      {member.avatarUrl ? (
+  const MemberAvatar = ({ member, className = "" }: { member: TeamMember, className?: string }) => {
+    if (!member.avatarUrl || imageError[member.id]) {
+      return (
+        <div className={cn(
+          "rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center",
+          className
+        )}>
+          <span className="text-xl font-bold text-white">
+            {member.name[0]}
+          </span>
+        </div>
+      );
+    }
+
+    return (
+      <div className={cn("rounded-full overflow-hidden", className)}>
         <Image 
           src={member.avatarUrl}
           alt={member.name}
           width={64}
           height={64}
           className="w-full h-full object-cover"
-          unoptimized
+          onError={() => setImageError(prev => ({ ...prev, [member.id]: true }))}
+          priority
         />
-      ) : (
-        <span className="text-xl font-bold text-white">
-          {member.name[0]}
-        </span>
-      )}
-    </div>
-  );
+      </div>
+    );
+  };
 
   const TimerDisplay = () => (
     <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow">
@@ -201,7 +206,11 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
 
         <Button
           onClick={onGameComplete}
-          className="mt-8 w-full"
+          className={cn(
+            "mt-8 w-full",
+            "bg-gradient-to-r from-purple-600 to-pink-600",
+            "hover:from-purple-700 hover:to-pink-700 text-white"
+          )}
         >
           Continuar a Predicciones
           <ArrowRight className="ml-2 h-4 w-4" />
@@ -259,7 +268,11 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
 
         <Button
           onClick={handleNextFact}
-          className="w-full max-w-md"
+          className={cn(
+            "w-full max-w-md",
+            "bg-gradient-to-r from-purple-600 to-pink-600",
+            "hover:from-purple-700 hover:to-pink-700 text-white"
+          )}
         >
           {currentFact < randomizedFacts.length - 1 ? (
             <>
@@ -302,13 +315,13 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
           <button
             key={member.id}
             onClick={() => handleAnswer(member.id)}
+            disabled={!isTimerActive}
             className={cn(
               "p-4 h-auto flex flex-col items-center bg-white border rounded-lg",
               "hover:bg-purple-50 transition-all duration-300 transform hover:scale-105",
               "focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50",
               !isTimerActive && "opacity-50 cursor-not-allowed"
             )}
-            disabled={!isTimerActive}
           >
             <MemberAvatar member={member} className="w-16 h-16 mb-2" />
             <span className="text-sm font-medium">{member.name}</span>

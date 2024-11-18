@@ -25,67 +25,67 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { 
     id: '1', 
     name: 'Maria Higuera',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:b9608878-093f-411b-9546-0949edd2c356?displayname=Maria%20Higuera&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/1.jpg'
   },
   { 
     id: '2', 
     name: 'Christian Uribe',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:fe7b1ae9-bf56-4b4a-837d-c05e6efcee6b?displayname=Christian%20Uribe&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/2.jpg'
   },
   { 
     id: '3', 
     name: 'Cristian Florez',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:2d1a3e6e-f735-4547-a205-e5f979ab83b2?displayname=Cristian%20Florez&size=HR64x64&ETag=1706296434145&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/3.jpg'
   },
   { 
     id: '4', 
     name: 'David Lopez',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:324515c2-6dd3-4b64-9a3d-4792769cc95d?displayname=Leissnel%20Lopez&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/4.jpg'
   },
   { 
     id: '5', 
     name: 'Gustavo',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:57c57785-3efb-4848-828e-81b5ca612fee?displayname=Gustavo%20Padilla&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/5.jpg'
   },
   { 
     id: '6', 
     name: 'Karen',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:e1499209-53ac-4375-abf7-2dd63e21a364?displayname=Karen%20Velasquez&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/6.jpg'
   },
   { 
     id: '7', 
     name: 'Luciany',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:cd4b9c12-6cae-404f-855c-7bef72869b58?displayname=Luciany%20Londono&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/7.jpg'
   },
   { 
     id: '8', 
     name: 'Lucia',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:402110f7-2f70-4500-8047-9ce973490ec9?displayname=Lucia%20Hernandez&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/8.jpg'
   },
   { 
     id: '9', 
     name: 'Monica',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:cc3037e1-e036-4bd1-8584-edd1c751e8ec?displayname=Monica%20Caldera&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/9.jpg'
   },
   { 
     id: '10', 
     name: 'Johan',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:b8f66d1b-8274-4ae7-8757-ffc66903b993?displayname=Johan%20Serna&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/10.jpg'
   },
   { 
     id: '11', 
     name: 'Juan Rico',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:747429bb-85bc-4f4e-93c7-abcfbc118f17?displayname=Juan%20Rico&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/11.jpg'
   },
   { 
     id: '12', 
     name: 'Sebastian',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:3d77bc14-427c-490c-824a-dc8bcfe6bcc9?displayname=Sebastian%20Diaz&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/12.jpg'
   },
   { 
     id: '13', 
     name: 'Nicolas',
-    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:98cd391c-7773-4189-8d03-1d0073686083?displayname=Nicolas%20Fonseca&size=HR64x64&avatarETag=NoETag_1726172202160'
+    avatarUrl: '/avatars/13.jpg'
   }
 ];
   
@@ -174,10 +174,11 @@ export const FUN_FACTS: FunFact[] = [
 ];
   
 export const METRICS_GOALS = {
-  TARDINESS_GOAL: 30,
-  ACTIVETRACK_GOAL: 6.75
+  TARDINESS_GOAL: 30, // minutos máximos aceptables de tardanza
+  ACTIVETRACK_GOAL: 6.75 // horas mínimas de activetrack
 };
   
+// Utilidades para cálculos de métricas
 export const calculateTeamAverages = (metrics: Record<string, TeamMember['metrics']>) => {
   const members = Object.values(metrics);
   return {
@@ -186,6 +187,7 @@ export const calculateTeamAverages = (metrics: Record<string, TeamMember['metric
   };
 };
   
+// Tipos para estados de la aplicación
 export type GamePhase = 'game' | 'predictions' | 'dashboard';
   
 export interface GameState {
