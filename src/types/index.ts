@@ -118,7 +118,7 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 2,
-    fact: "Colecciono figuras de anime y tengo más de 50 en mi escritorio",
+    fact: "Durante la pandemia monté un canal de Twitch donde jugaba y de ahí sacaba clips para otras redes sociales",
     correctMemberId: "3"
   },
   {
@@ -163,7 +163,7 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 11,
-    fact: "Toco la batería en una banda de covers de rock de los 80s",
+    fact: "No me gustan los estampados en la ropa. ni diseños o muñecos, prefiero un estilo monocromatico. Otro dato es que me gusta el senderismo",
     correctMemberId: "12"
   },
   {
