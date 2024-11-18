@@ -7,7 +7,15 @@ export interface TeamMember {
   metrics?: {
     tardiness: number;
     activetrack: number;
+    daily?: {
+      [key: string]: DailyMetrics;
+    };
   };
+}
+
+interface DailyMetrics {
+  tardiness: number;
+  activetrack: number;
 }
   
 export interface TeamPrediction {
@@ -90,19 +98,149 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
   
 export const LAST_WEEK_METRICS: Record<string, TeamMember['metrics']> = {
-  '1': { tardiness: 0, activetrack: 0.0 },
-  '2': { tardiness: 17, activetrack: 7.2 },
-  '3': { tardiness: 0, activetrack: 6.9 },
-  '4': { tardiness: 0, activetrack: 7.5 },
-  '5': { tardiness: 13, activetrack: 7.2 },
-  '6': { tardiness: 0, activetrack: 6.4 },
-  '7': { tardiness: 22, activetrack: 6.4 },
-  '8': { tardiness: 0, activetrack: 7.0 },
-  '9': { tardiness: 23, activetrack: 6.6 },
-  '10': { tardiness: 6, activetrack: 7.2 },
-  '11': { tardiness: 0, activetrack: 6.9 },
-  '12': { tardiness: 0, activetrack: 0.0 },
-  '13': { tardiness: 0, activetrack: 6.9 }
+  '1': { 
+    tardiness: 0, 
+    activetrack: 0.0,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-13': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-14': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-15': { tardiness: 0, activetrack: 0.0 }
+    }
+  },
+  '2': { 
+    tardiness: 17, 
+    activetrack: 7.2,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.5 },
+      '2024-11-12': { tardiness: 17, activetrack: 7.2 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+    }
+  },
+  '3': { 
+    tardiness: 0, 
+    activetrack: 6.9,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.8 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.7 }
+    }
+  },
+  '4': { 
+    tardiness: 0, 
+    activetrack: 7.5,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.6 },
+      '2024-11-12': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.5 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.8 },
+      '2024-11-15': { tardiness: 0, activetrack: 7.2 }
+    }
+  },
+  '5': { 
+    tardiness: 13, 
+    activetrack: 7.2,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.3 },
+      '2024-11-12': { tardiness: 13, activetrack: 7.1 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.2 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-15': { tardiness: 0, activetrack: 7.0 }
+    }
+  },
+  '6': { 
+    tardiness: 0, 
+    activetrack: 6.4,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 6.5 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.3 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.4 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.2 }
+    }
+  },
+  '7': { 
+    tardiness: 22, 
+    activetrack: 6.4,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-12': { tardiness: 22, activetrack: 6.2 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.4 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.5 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.3 }
+    }
+  },
+  '8': { 
+    tardiness: 0, 
+    activetrack: 7.0,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.2 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+    }
+  },
+  '9': { 
+    tardiness: 23, 
+    activetrack: 6.6,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 6.8 },
+      '2024-11-12': { tardiness: 23, activetrack: 6.4 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.6 },
+      '2024-11-14': { tardiness: 0, activetrack: 6.7 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.5 }
+    }
+  },
+  '10': { 
+    tardiness: 6, 
+    activetrack: 7.2,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.4 },
+      '2024-11-12': { tardiness: 6, activetrack: 7.0 },
+      '2024-11-13': { tardiness: 0, activetrack: 7.2 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.3 },
+      '2024-11-15': { tardiness: 0, activetrack: 7.1 }
+    }
+  },
+  '11': { 
+    tardiness: 0, 
+    activetrack: 6.9,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.8 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.7 }
+    }
+  },
+  '12': { 
+    tardiness: 0, 
+    activetrack: 0.0,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-12': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-13': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-14': { tardiness: 0, activetrack: 0.0 },
+      '2024-11-15': { tardiness: 0, activetrack: 0.0 }
+    }
+  },
+  '13': { 
+    tardiness: 0, 
+    activetrack: 6.9,
+    daily: {
+      '2024-11-11': { tardiness: 0, activetrack: 7.1 },
+      '2024-11-12': { tardiness: 0, activetrack: 6.7 },
+      '2024-11-13': { tardiness: 0, activetrack: 6.9 },
+      '2024-11-14': { tardiness: 0, activetrack: 7.0 },
+      '2024-11-15': { tardiness: 0, activetrack: 6.8 }
+    }
+  }
 };
   
 export const FUN_FACTS: FunFact[] = [
@@ -186,12 +324,125 @@ export const calculateTeamAverages = (metrics: Record<string, TeamMember['metric
     activetrack: members.reduce((acc, curr) => acc + (curr?.activetrack || 0), 0) / members.length
   };
 };
+
+// Constantes para días de la semana
+export const WEEKDAYS = [
+  { date: '2024-11-11', label: 'Lun' },
+  { date: '2024-11-12', label: 'Mar' },
+  { date: '2024-11-13', label: 'Mie' },
+  { date: '2024-11-14', label: 'Jue' },
+  { date: '2024-11-15', label: 'Vie' }
+] as const;
   
 // Tipos para estados de la aplicación
-export type GamePhase = 'game' | 'predictions' | 'dashboard';
-  
+export type GamePhase = 'selection' | 'game' | 'predictions' | 'dashboard';
+
 export interface GameState {
   phase: GamePhase;
   score?: number;
   teamPrediction?: TeamPrediction;
+  currentUserId?: string;
+}
+
+// Tipos para predicciones
+export interface Prediction {
+  userId: string;
+  metrics: {
+    tardiness: number;
+    activetrack: number;
+  };
+  timestamp: string;
+}
+
+// Tipos para el dashboard
+export type SortField = 'name' | 'tardiness' | 'activetrack';
+export type SortDirection = 'asc' | 'desc';
+
+export interface DashboardState {
+  sortField: SortField;
+  sortDirection: SortDirection;
+  selectedDay: string | null;
+  selectedMember: string | null;
+}
+
+// Tipos para el cálculo de métricas
+export interface MetricSummary {
+  total: number;
+  average: number;
+  min: number;
+  max: number;
+  meetingGoal: number; // número de personas que cumplen la meta
+}
+
+export interface TeamMetricsSummary {
+  tardiness: MetricSummary;
+  activetrack: MetricSummary;
+}
+
+// Utilidades adicionales para métricas
+export const calculateTeamMetricsSummary = (metrics: Record<string, TeamMember['metrics']>): TeamMetricsSummary => {
+  const members = Object.values(metrics).filter(m => m !== undefined);
+  
+  return {
+    tardiness: {
+      total: members.reduce((acc, curr) => acc + (curr?.tardiness || 0), 0),
+      average: members.reduce((acc, curr) => acc + (curr?.tardiness || 0), 0) / members.length,
+      min: Math.min(...members.map(m => m?.tardiness || 0)),
+      max: Math.max(...members.map(m => m?.tardiness || 0)),
+      meetingGoal: members.filter(m => (m?.tardiness || 0) <= METRICS_GOALS.TARDINESS_GOAL).length
+    },
+    activetrack: {
+      total: members.reduce((acc, curr) => acc + (curr?.activetrack || 0), 0),
+      average: members.reduce((acc, curr) => acc + (curr?.activetrack || 0), 0) / members.length,
+      min: Math.min(...members.map(m => m?.activetrack || 0)),
+      max: Math.max(...members.map(m => m?.activetrack || 0)),
+      meetingGoal: members.filter(m => (m?.activetrack || 0) >= METRICS_GOALS.ACTIVETRACK_GOAL).length
+    }
+  };
+};
+
+// Función para calcular métricas diarias del equipo
+export const calculateDailyTeamMetrics = (metrics: Record<string, TeamMember['metrics']>) => {
+  const dailyMetrics: Record<string, { tardiness: number; activetrack: number; count: number }> = {};
+
+  Object.values(metrics).forEach(memberMetrics => {
+    if (memberMetrics?.daily) {
+      Object.entries(memberMetrics.daily).forEach(([date, metrics]) => {
+        if (!dailyMetrics[date]) {
+          dailyMetrics[date] = { tardiness: 0, activetrack: 0, count: 0 };
+        }
+        dailyMetrics[date].tardiness += metrics.tardiness;
+        dailyMetrics[date].activetrack += metrics.activetrack;
+        dailyMetrics[date].count += 1;
+      });
+    }
+  });
+
+  // Calcular promedios
+  return Object.entries(dailyMetrics).reduce((acc, [date, metrics]) => {
+    acc[date] = {
+      tardiness: metrics.tardiness / metrics.count,
+      activetrack: metrics.activetrack / metrics.count
+    };
+    return acc;
+  }, {} as Record<string, { tardiness: number; activetrack: number }>);
+};
+
+// Función para obtener el estado de las métricas de un miembro
+export const getMemberMetricsStatus = (metrics: TeamMember['metrics']) => {
+  if (!metrics) return { tardiness: 'no-data', activetrack: 'no-data' };
+
+  return {
+    tardiness: metrics.tardiness === 0 ? 'perfect' :
+               metrics.tardiness <= METRICS_GOALS.TARDINESS_GOAL ? 'good' : 'warning',
+    activetrack: metrics.activetrack >= METRICS_GOALS.ACTIVETRACK_GOAL + 0.5 ? 'excellent' :
+                 metrics.activetrack >= METRICS_GOALS.ACTIVETRACK_GOAL ? 'good' : 'warning'
+  };
+};
+
+export type MetricStatus = 'perfect' | 'excellent' | 'good' | 'warning' | 'no-data';
+
+export interface TeamMemberMetricsStatus {
+  tardiness: MetricStatus;
+  activetrack: MetricStatus;
 }
