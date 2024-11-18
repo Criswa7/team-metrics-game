@@ -25,95 +25,95 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { 
     id: '1', 
     name: 'Maria Higuera',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-female.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:b9608878-093f-411b-9546-0949edd2c356?displayname=Maria%20Higuera&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '2', 
     name: 'Christian Uribe',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:fe7b1ae9-bf56-4b4a-837d-c05e6efcee6b?displayname=Christian%20Uribe&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '3', 
     name: 'Cristian Florez',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:2d1a3e6e-f735-4547-a205-e5f979ab83b2?displayname=Cristian%20Florez&size=HR64x64&ETag=1706296434145&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '4', 
     name: 'David Lopez',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:324515c2-6dd3-4b64-9a3d-4792769cc95d?displayname=Leissnel%20Lopez&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '5', 
     name: 'Gustavo',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:57c57785-3efb-4848-828e-81b5ca612fee?displayname=Gustavo%20Padilla&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '6', 
     name: 'Karen',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-female.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:e1499209-53ac-4375-abf7-2dd63e21a364?displayname=Karen%20Velasquez&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '7', 
     name: 'Luciany',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-female.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:cd4b9c12-6cae-404f-855c-7bef72869b58?displayname=Luciany%20Londono&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '8', 
     name: 'Lucia',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-female.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:402110f7-2f70-4500-8047-9ce973490ec9?displayname=Lucia%20Hernandez&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '9', 
     name: 'Monica',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-female.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:cc3037e1-e036-4bd1-8584-edd1c751e8ec?displayname=Monica%20Caldera&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '10', 
     name: 'Johan',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:b8f66d1b-8274-4ae7-8757-ffc66903b993?displayname=Johan%20Serna&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '11', 
     name: 'Juan Rico',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:747429bb-85bc-4f4e-93c7-abcfbc118f17?displayname=Juan%20Rico&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '12', 
     name: 'Sebastian',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:3d77bc14-427c-490c-824a-dc8bcfe6bcc9?displayname=Sebastian%20Diaz&size=HR64x64&avatarETag=NoETag_1726172202160'
   },
   { 
     id: '13', 
     name: 'Nicolas',
-    avatarUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-react-assets/persona-male.png'
+    avatarUrl: 'https://teams.microsoft.com/api/mt/amer/beta/users/2d1a3e6e-f735-4547-a205-e5f979ab83b2/profilepicturev2/8:orgid:98cd391c-7773-4189-8d03-1d0073686083?displayname=Nicolas%20Fonseca&size=HR64x64&avatarETag=NoETag_1726172202160'
   }
 ];
   
 export const LAST_WEEK_METRICS: Record<string, TeamMember['metrics']> = {
-  '1': { tardiness: 0, activetrack: 6.8 },
-  '2': { tardiness: 17, activetrack: 7.1 },
+  '1': { tardiness: 0, activetrack: 0.0 },
+  '2': { tardiness: 17, activetrack: 7.2 },
   '3': { tardiness: 0, activetrack: 6.9 },
-  '4': { tardiness: 0, activetrack: 6.7 },
-  '5': { tardiness: 13, activetrack: 7.0 },
-  '6': { tardiness: 0, activetrack: 6.9 },
-  '7': { tardiness: 22, activetrack: 6.8 },
-  '8': { tardiness: 0, activetrack: 7.2 },
-  '9': { tardiness: 23, activetrack: 6.9 },
-  '10': { tardiness: 6, activetrack: 7.0 },
-  '11': { tardiness: 0, activetrack: 6.8 },
-  '12': { tardiness: 0, activetrack: 6.9 },
-  '13': { tardiness: 0, activetrack: 6.7 }
+  '4': { tardiness: 0, activetrack: 7.5 },
+  '5': { tardiness: 13, activetrack: 7.2 },
+  '6': { tardiness: 0, activetrack: 6.4 },
+  '7': { tardiness: 22, activetrack: 6.4 },
+  '8': { tardiness: 0, activetrack: 7.0 },
+  '9': { tardiness: 23, activetrack: 6.6 },
+  '10': { tardiness: 6, activetrack: 7.2 },
+  '11': { tardiness: 0, activetrack: 6.9 },
+  '12': { tardiness: 0, activetrack: 0.0 },
+  '13': { tardiness: 0, activetrack: 6.9 }
 };
   
 export const FUN_FACTS: FunFact[] = [
   { 
     id: 0,
-    fact: "Mi sueño frustrado era ser DJ, aún tengo una consola guardada en casa",
+    fact: "Escribo. Estoy escribiendo un libro",
     correctMemberId: "1"
   },
   {
     id: 1,
-    fact: "Una vez me quedé dormido en una reunión y mi cámara estaba encendida",
+    fact: "Me gustan mucho los conciertos, he ido a más de 50. De hecho esta mañana estaba justamente en uno",
     correctMemberId: "2"
   },
   {
@@ -133,7 +133,7 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 5,
-    fact: "Tengo un canal de YouTube secreto sobre recetas de cocina",
+    fact: "Tengo un hobby de hacer Makeup artist",
     correctMemberId: "6"
   },
   {
@@ -143,22 +143,22 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 7,
-    fact: "Gané un concurso de karaoke cantando rancheras",
+    fact: "A los 5 años, en una fiesta del colegio, dejé mi pulgar en la ranura de una puerta de metal mientras miraba la decoración. Un niño cerró la puerta porque ""no podia mirar"" atrapando mi dedo. Me llevaron al médico y aunque me desperté durante la cirugia (vi mi dedo abierto 💀), la operación salió bien. Solo me quedó una cicatriz, pero casi pierdo el dedo",
     correctMemberId: "8"
   },
   {
     id: 8,
-    fact: "Tengo una colección de más de 100 pares de calcetines temáticos",
+    fact: "Me gusta escribir, escribo un diario, fragmentos y me gustaría escribir cuentos",
     correctMemberId: "9"
   },
   {
     id: 9,
-    fact: "Mi gato se llama 'Bug' porque lo encontré mientras debuggeaba código",
+    fact: "Me gusta escribir, escribo un diario, fragmentos y me gustaría escribir cuentos",
     correctMemberId: "10"
   },
   {
     id: 10,
-    fact: "Fui campeón nacional de ajedrez en categoría juvenil",
+    fact: "Nunca digo que no a algun plan",
     correctMemberId: "11"
   },
   {
