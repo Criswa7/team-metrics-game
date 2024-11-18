@@ -1,21 +1,25 @@
 // src/components/Dashboard.tsx
 'use client';
-import React, { useState } from 'react';
-import { TEAM_MEMBERS, LAST_WEEK_METRICS, METRICS_GOALS, TeamMember } from '@/types';
-import { Clock, Activity, TrendingUp, AlertCircle, Award, CheckCircle, ChevronUp, ChevronDown } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import Image from 'next/image';
+import { TEAM_MEMBERS, LAST_WEEK_METRICS, METRICS_GOALS, TeamMember, WEEKDAYS } from '@/types';
+import { Clock, Activity, TrendingUp, AlertCircle, Award, CheckCircle, ChevronUp, ChevronDown, LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const WEEKDAYS = [
-  { date: '2024-11-11', label: 'Lun' },
-  { date: '2024-11-12', label: 'Mar' },
-  { date: '2024-11-13', label: 'Mie' },
-  { date: '2024-11-14', label: 'Jue' },
-  { date: '2024-11-15', label: 'Vie' }
-];
+type SortField = 'name' | 'tardiness' | 'activetrack';
+type SortDirection = 'asc' | 'desc';
+
+interface MetricCardProps {
+  icon: LucideIcon;
+  title: string;
+  value: string;
+  subtext: string;
+  color: string;
+}
 
 export default function Dashboard() {
-  const [sortField, setSortField] = useState<'name' | 'tardiness' | 'activetrack'>('name');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortField, setSortField] = useState<SortField>('name');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
 
   // Calcular promedios del equipo
@@ -45,52 +49,78 @@ export default function Dashboard() {
     { punctualMembers: 0, activeMembers: 0 }
   );
 
-  // Ordenar miembros del equipo
-  const sortedMembers = [...TEAM_MEMBERS].sort((a, b) => {
-    const metricsA = LAST_WEEK_METRICS[a.id];
-    const metricsB = LAST_WEEK_METRICS[b.id];
-
-    if (sortField === 'name') {
-      return sortDirection === 'asc' 
-        ? a.name.localeCompare(b.name)
-        : b.name.localeCompare(a.name);
-    }
-
-    const valueA = metricsA?.[sortField] || 0;
-    const valueB = metricsB?.[sortField] || 0;
-
-    return sortDirection === 'asc' ? valueA - valueB : valueB - valueA;
-  });
-
-  const toggleSort = (field: typeof sortField) => {
+  const toggleSort = useCallback((field: SortField) => {
     if (sortField === field) {
       setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
     } else {
       setSortField(field);
       setSortDirection('asc');
     }
-  };
+  }, [sortField]);
 
-  const getActiveTrackColor = (value: number) => {
+  const getActiveTrackColor = useCallback((value: number) => {
     if (value === 0) return 'bg-gray-100';
     if (value < METRICS_GOALS.ACTIVETRACK_GOAL) return 'bg-red-100';
     if (value === METRICS_GOALS.ACTIVETRACK_GOAL) return 'bg-yellow-100';
     const intensity = Math.min(100, ((value - METRICS_GOALS.ACTIVETRACK_GOAL) / 2) * 100);
     return `bg-green-${Math.round(intensity / 10) * 100}`;
+  }, []);
+
+  // Ordenar miembros del equipo
+  const sortedMembers = React.useMemo(() => {
+    return [...TEAM_MEMBERS].sort((a, b) => {
+      const metricsA = LAST_WEEK_METRICS[a.id];
+      const metricsB = LAST_WEEK_METRICS[b.id];
+
+      if (sortField === 'name') {
+        return sortDirection === 'asc' 
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name);
+      }
+
+      const valueA = metricsA?.[sortField] || 0;
+      const valueB = metricsB?.[sortField] || 0;
+
+      return sortDirection === 'asc' ? valueA - valueB : valueB - valueA;
+    });
+  }, [sortField, sortDirection]);
+
+  const MemberAvatar = ({ member, className = "" }: { member: TeamMember; className?: string }) => {
+    const [imageError, setImageError] = useState(false);
+
+    if (!member.avatarUrl || imageError) {
+      return (
+        <div className={cn(
+          "bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-medium",
+          className
+        )}>
+          <span className="text-lg">{member.name[0]}</span>
+        </div>
+      );
+    }
+
+    return (
+      <div className={cn("rounded-full overflow-hidden", className)}>
+        <Image 
+          src={member.avatarUrl}
+          alt={member.name}
+          width={64}
+          height={64}
+          className="w-full h-full object-cover"
+          onError={() => setImageError(true)}
+          priority
+          unoptimized
+        />
+      </div>
+    );
   };
 
-  const MetricCard = ({ 
+  const MetricCard: React.FC<MetricCardProps> = ({ 
     icon: Icon, 
     title, 
     value, 
     subtext, 
     color 
-  }: { 
-    icon: any, 
-    title: string, 
-    value: string, 
-    subtext: string, 
-    color: string 
   }) => (
     <div className="bg-white rounded-lg p-6 shadow-md">
       <div className="flex items-center mb-4">
@@ -108,7 +138,7 @@ export default function Dashboard() {
     </div>
   );
 
-  const DailyMetricsHeatmap = ({ member }: { member: TeamMember }) => {
+  const DailyMetricsHeatmap: React.FC<{ member: TeamMember }> = ({ member }) => {
     const metrics = LAST_WEEK_METRICS[member.id];
     if (!metrics?.daily) return null;
 
@@ -122,7 +152,7 @@ export default function Dashboard() {
             <div 
               key={date}
               className={cn(
-                "flex-1 p-2 rounded transition-all",
+                "flex-1 p-2 rounded transition-all cursor-pointer hover:ring-2 hover:ring-purple-200",
                 getActiveTrackColor(dayMetrics.activetrack),
                 selectedDay === date && "ring-2 ring-purple-500"
               )}
@@ -140,7 +170,7 @@ export default function Dashboard() {
     );
   };
 
-  const MemberRow = ({ member }: { member: TeamMember }) => {
+  const MemberRow: React.FC<{ member: TeamMember }> = ({ member }) => {
     const metrics = LAST_WEEK_METRICS[member.id];
     const meetsActiveTrackGoal = (metrics?.activetrack || 0) >= METRICS_GOALS.ACTIVETRACK_GOAL;
     const isPunctual = (metrics?.tardiness || 0) === 0;
@@ -150,9 +180,7 @@ export default function Dashboard() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-medium">
-                {member.name[0]}
-              </div>
+              <MemberAvatar member={member} className="w-10 h-10" />
               <div>
                 <p className="font-medium text-gray-800">{member.name}</p>
                 <div className="flex space-x-4 text-sm text-gray-600">

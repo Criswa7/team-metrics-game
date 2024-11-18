@@ -1,6 +1,6 @@
 // src/app/page.tsx
 'use client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { GamePhase } from '@/types';
 import GameLayout from '@/components/GameLayout';
 import UserSelection from '@/components/UserSelection';
@@ -12,7 +12,7 @@ export default function Home() {
   const [phase, setPhase] = useState<GamePhase>('selection');
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
-  const getTitle = () => {
+  const getTitle = useCallback(() => {
     switch (phase) {
       case 'selection':
         return '¡Bienvenido al Juego!';
@@ -25,29 +25,39 @@ export default function Home() {
       default:
         return '';
     }
-  };
+  }, [phase]);
 
-  const renderPhase = () => {
+  const handleUserSelection = useCallback((userId: string) => {
+    setCurrentUserId(userId);
+    setPhase('game');
+  }, []);
+
+  const handleGameComplete = useCallback(() => {
+    setPhase('predictions');
+  }, []);
+
+  const handlePredictionsComplete = useCallback(() => {
+    setPhase('dashboard');
+  }, []);
+
+  const renderPhase = useCallback(() => {
     switch (phase) {
       case 'selection':
         return (
           <UserSelection
-            onComplete={(userId) => {
-              setCurrentUserId(userId);
-              setPhase('game');
-            }}
+            onComplete={handleUserSelection}
           />
         );
       case 'game':
         return (
           <WhoIsWho
-            onGameComplete={() => setPhase('predictions')}
+            onGameComplete={handleGameComplete}
           />
         );
       case 'predictions':
         return (
           <Predictions
-            onComplete={() => setPhase('dashboard')}
+            onComplete={handlePredictionsComplete}
           />
         );
       case 'dashboard':
@@ -55,7 +65,7 @@ export default function Home() {
       default:
         return null;
     }
-  };
+  }, [phase, handleUserSelection, handleGameComplete, handlePredictionsComplete]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-pink-50">
