@@ -312,7 +312,7 @@ export const FUN_FACTS: FunFact[] = [
 ];
   
 export const METRICS_GOALS = {
-  TARDINESS_GOAL: 30, // minutos máximos aceptables de tardanza
+  TARDINESS_GOAL: 15, // minutos máximos aceptables de tardanza
   ACTIVETRACK_GOAL: 6.75 // horas mínimas de activetrack
 };
   
