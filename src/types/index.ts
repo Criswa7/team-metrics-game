@@ -21,7 +21,7 @@ export interface TeamMember {
   }
   
   export const TEAM_MEMBERS: TeamMember[] = [
-    { id: '1', name: 'Camila Higuera' },
+    { id: '1', name: 'Maria Higuera' },
     { id: '2', name: 'Christian Uribe' },
     { id: '3', name: 'Cristian Florez' },
     { id: '4', name: 'David Lopez' },

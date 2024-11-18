@@ -2,20 +2,22 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { FunFact, TEAM_MEMBERS, FUN_FACTS } from '@/types';
-import { Star, Trophy } from 'lucide-react';
+import { Star, Trophy, ArrowRight, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface WhoIsWhoProps {
   onGameComplete: () => void;
 }
 
 export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
-  // Crear array aleatorio de facts al inicio
   const [randomizedFacts, setRandomizedFacts] = useState<FunFact[]>([]);
   const [currentFact, setCurrentFact] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [showResults, setShowResults] = useState(false);
+  const [showReveal, setShowReveal] = useState(false);
+  const [score, setScore] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  // Función para mezclar array
   const shuffleArray = <T,>(array: T[]): T[] => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -25,38 +27,43 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
     return shuffled;
   };
 
-  // Inicializar los facts aleatorios al montar el componente
   useEffect(() => {
     setRandomizedFacts(shuffleArray(FUN_FACTS));
   }, []);
 
-  const score = Object.entries(answers).reduce((acc, [index, answerId]) => {
-    const fact = randomizedFacts[Number(index)];
-    return acc + (answerId === fact?.correctMemberId ? 1 : 0);
-  }, 0);
-
   const handleAnswer = (memberId: string) => {
-    if (answers[currentFact] !== undefined) return;
-
+    setIsAnimating(true);
+    const isCorrect = memberId === randomizedFacts[currentFact].correctMemberId;
     setAnswers(prev => ({ ...prev, [currentFact]: memberId }));
-    
+    if (isCorrect) {
+      setScore(prev => prev + 1);
+    }
     setTimeout(() => {
+      setShowReveal(true);
+      setIsAnimating(false);
+    }, 300);
+  };
+
+  const handleNextFact = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setShowReveal(false);
       if (currentFact < randomizedFacts.length - 1) {
         setCurrentFact(prev => prev + 1);
       } else {
         setShowResults(true);
       }
-    }, 1000);
+      setIsAnimating(false);
+    }, 300);
   };
 
-  // Esperar a que los facts estén mezclados antes de mostrar el contenido
   if (randomizedFacts.length === 0) {
     return <div>Cargando...</div>;
   }
 
   if (showResults) {
     return (
-      <div className="max-w-2xl mx-auto p-6">
+      <div className={`max-w-2xl mx-auto p-6 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
         <div className="text-center mb-8">
           <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -74,8 +81,9 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
             const correctMember = TEAM_MEMBERS.find(m => m.id === fact.correctMemberId);
 
             return (
-              <div key={fact.id} 
-                className={`p-4 rounded-lg ${
+              <div 
+                key={fact.id}
+                className={`p-4 rounded-lg transform transition-all duration-300 hover:scale-102 ${
                   isCorrect ? 'bg-green-50' : 'bg-red-50'
                 } border ${
                   isCorrect ? 'border-green-200' : 'border-red-200'
@@ -97,18 +105,72 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
           })}
         </div>
 
-        <button
+        <Button
           onClick={onGameComplete}
-          className="mt-8 w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all"
+          className="mt-8 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
         >
           Continuar a Predicciones
-        </button>
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </div>
+    );
+  }
+
+  if (showReveal) {
+    const currentAnswer = answers[currentFact];
+    const isCorrect = currentAnswer === randomizedFacts[currentFact].correctMemberId;
+    const correctMember = TEAM_MEMBERS.find(m => m.id === randomizedFacts[currentFact].correctMemberId);
+    const answeredMember = TEAM_MEMBERS.find(m => m.id === currentAnswer);
+
+    return (
+      <div className={`max-w-2xl mx-auto p-6 text-center transition-all duration-300 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+        <div className="mb-8 transform transition-all duration-500">
+          {isCorrect ? (
+            <ThumbsUp className="w-16 h-16 text-green-500 mx-auto mb-4 animate-bounce" />
+          ) : (
+            <ThumbsDown className="w-16 h-16 text-red-500 mx-auto mb-4 animate-bounce" />
+          )}
+          
+          <h2 className={`text-2xl font-bold mb-4 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+            {isCorrect ? '¡Correcto!' : '¡Casi!'}
+          </h2>
+        </div>
+
+        <div className="bg-white rounded-lg p-6 shadow-md mb-8 transform transition-all duration-500">
+          <p className="text-xl text-gray-800 mb-4">
+            {randomizedFacts[currentFact].fact}
+          </p>
+          <div className="text-lg">
+            <p className="mb-2">
+              Tu respuesta: <span className="font-medium">{answeredMember?.name}</span>
+            </p>
+            {!isCorrect && (
+              <p className="text-green-600">
+                La respuesta correcta era: <span className="font-medium">{correctMember?.name}</span>
+              </p>
+            )}
+          </div>
+        </div>
+
+        <Button
+          onClick={handleNextFact}
+          className="w-full max-w-md bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+        >
+          {currentFact < randomizedFacts.length - 1 ? (
+            <>
+              Siguiente Dato
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </>
+          ) : (
+            'Ver Resultados'
+          )}
+        </Button>
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className={`max-w-3xl mx-auto p-6 transition-all duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center">
           <Star className="w-5 h-5 text-yellow-500 mr-2" />
@@ -121,46 +183,31 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
         </span>
       </div>
 
-      <div className="bg-white rounded-lg p-6 shadow-md mb-8">
+      <div className="bg-white rounded-lg p-6 shadow-md mb-8 transform transition-all duration-300 hover:shadow-lg">
         <p className="text-xl text-gray-800 text-center">
           {randomizedFacts[currentFact].fact}
         </p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {shuffleArray(TEAM_MEMBERS).map((member) => {
-          const isSelected = answers[currentFact] === member.id;
-          const isCorrect = isSelected && member.id === randomizedFacts[currentFact].correctMemberId;
-
-          return (
-            <button
-              key={member.id}
-              onClick={() => handleAnswer(member.id)}
-              disabled={answers[currentFact] !== undefined}
-              className={`
-                p-4 rounded-lg transition-all
-                ${isSelected 
-                  ? isCorrect
-                    ? 'bg-green-500 text-white'
-                    : 'bg-red-500 text-white'
-                  : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600'
-                }
-              `}
-            >
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-lg font-bold mb-2">
-                  {member.name[0]}
-                </div>
-                <span className="text-sm font-medium">{member.name}</span>
-              </div>
-            </button>
-          );
-        })}
+        {shuffleArray(TEAM_MEMBERS).map((member) => (
+          <Button
+            key={member.id}
+            onClick={() => handleAnswer(member.id)}
+            variant="outline"
+            className="p-4 h-auto flex flex-col items-center hover:bg-purple-50 transition-all duration-300 transform hover:scale-105"
+          >
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-lg font-bold mb-2 text-white">
+              {member.name[0]}
+            </div>
+            <span className="text-sm font-medium">{member.name}</span>
+          </Button>
+        ))}
       </div>
 
       <div className="mt-6 bg-gray-200 rounded-full h-2">
         <div
-          className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all"
+          className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300"
           style={{ width: `${((currentFact + 1) / randomizedFacts.length) * 100}%` }}
         />
       </div>
