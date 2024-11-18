@@ -10,7 +10,6 @@ import Dashboard from '@/components/Dashboard';
 
 export default function Home() {
   const [phase, setPhase] = useState<GamePhase>('selection');
-  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   const getTitle = useCallback(() => {
     switch (phase) {
@@ -27,8 +26,7 @@ export default function Home() {
     }
   }, [phase]);
 
-  const handleUserSelection = useCallback((userId: string) => {
-    setCurrentUserId(userId);
+  const handleUserSelection = useCallback(() => {
     setPhase('game');
   }, []);
 
