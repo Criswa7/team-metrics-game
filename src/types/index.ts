@@ -153,7 +153,7 @@ export const FUN_FACTS: FunFact[] = [
   },
   {
     id: 9,
-    fact: "Me gusta escribir, escribo un diario, fragmentos y me gustaría escribir cuentos",
+    fact: "La razón por la que aprendí inglés fue porque en quinto de primaria fue la primera materia que reprobé en el colegio, entonces desde ese día dije que nunca más perdería esa materia en mi vida",
     correctMemberId: "10"
   },
   {
