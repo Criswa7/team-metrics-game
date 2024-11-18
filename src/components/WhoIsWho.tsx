@@ -1,6 +1,7 @@
 // src/components/WhoIsWho.tsx
 'use client';
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { FunFact, TEAM_MEMBERS, FUN_FACTS } from '@/types';
 import { Star, Trophy, ArrowRight, ThumbsUp, ThumbsDown, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,7 @@ interface WhoIsWhoProps {
   onGameComplete: () => void;
 }
 
-const TIMER_DURATION = 30; // segundos
+const TIMER_DURATION = 30;
 
 export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
   const [randomizedFacts, setRandomizedFacts] = useState<FunFact[]>([]);
@@ -33,14 +34,12 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
     return shuffled;
   };
 
-  // Inicializar el juego
   useEffect(() => {
     const shuffledFacts = shuffleArray(FUN_FACTS);
     setRandomizedFacts(shuffledFacts);
     setShuffledMembers(shuffleArray(TEAM_MEMBERS));
   }, []);
 
-  // Manejar tiempo agotado
   const handleTimeUp = useCallback(() => {
     if (!isTimerActive || showReveal) return;
     setIsTimerActive(false);
@@ -48,7 +47,6 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
     setShowReveal(true);
   }, [currentFact, isTimerActive, showReveal]);
 
-  // Temporizador
   useEffect(() => {
     if (!isTimerActive || showReveal || showResults) return;
 
@@ -103,6 +101,25 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
       setIsAnimating(false);
     }, 300);
   }, [currentFact, randomizedFacts.length, resetTimer]);
+
+  const MemberAvatar = ({ member, className = "" }: { member: typeof TEAM_MEMBERS[0], className?: string }) => (
+    <div className={cn("rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center", className)}>
+      {member.avatarUrl ? (
+        <Image 
+          src={member.avatarUrl}
+          alt={member.name}
+          width={64}
+          height={64}
+          className="w-full h-full object-cover"
+          unoptimized
+        />
+      ) : (
+        <span className="text-xl font-bold text-white">
+          {member.name[0]}
+        </span>
+      )}
+    </div>
+  );
 
   const TimerDisplay = () => (
     <div className="flex items-center space-x-2 bg-white rounded-full px-4 py-2 shadow">
@@ -160,12 +177,8 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
                         <>
                           Tu respuesta: 
                           <div className="inline-flex items-center ml-2">
-                            {answeredMember?.avatarUrl && (
-                              <img 
-                                src={answeredMember.avatarUrl} 
-                                alt={answeredMember.name}
-                                className="w-6 h-6 rounded-full mr-1"
-                              />
+                            {answeredMember && (
+                              <MemberAvatar member={answeredMember} className="w-6 h-6 mr-1" />
                             )}
                             <span className="font-medium">{answeredMember?.name}</span>
                           </div>
@@ -173,17 +186,11 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
                       )}
                     </span>
                   </div>
-                  {!isCorrect && (
+                  {!isCorrect && correctMember && (
                     <div className="flex items-center space-x-2 text-green-600">
                       <span>Era:</span>
-                      {correctMember?.avatarUrl && (
-                        <img 
-                          src={correctMember.avatarUrl} 
-                          alt={correctMember.name}
-                          className="w-6 h-6 rounded-full"
-                        />
-                      )}
-                      <span className="font-medium">{correctMember?.name}</span>
+                      <MemberAvatar member={correctMember} className="w-6 h-6" />
+                      <span className="font-medium">{correctMember.name}</span>
                     </div>
                   )}
                 </div>
@@ -236,26 +243,14 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
             {!isTimeout && answeredMember && (
               <div className="mb-4 flex items-center justify-center space-x-2">
                 <span>Tu respuesta:</span>
-                {answeredMember.avatarUrl && (
-                  <img 
-                    src={answeredMember.avatarUrl} 
-                    alt={answeredMember.name}
-                    className="w-8 h-8 rounded-full"
-                  />
-                )}
+                <MemberAvatar member={answeredMember} className="w-8 h-8" />
                 <span className="font-medium">{answeredMember.name}</span>
               </div>
             )}
             {(!isCorrect || isTimeout) && correctMember && (
               <div className="text-green-600 flex items-center justify-center space-x-2">
                 <span>La respuesta correcta era:</span>
-                {correctMember.avatarUrl && (
-                  <img 
-                    src={correctMember.avatarUrl} 
-                    alt={correctMember.name}
-                    className="w-8 h-8 rounded-full"
-                  />
-                )}
+                <MemberAvatar member={correctMember} className="w-8 h-8" />
                 <span className="font-medium">{correctMember.name}</span>
               </div>
             )}
@@ -315,19 +310,7 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
             )}
             disabled={!isTimerActive}
           >
-            <div className="w-16 h-16 rounded-full overflow-hidden mb-2 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-              {member.avatarUrl ? (
-                <img 
-                  src={member.avatarUrl} 
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <span className="text-xl font-bold text-white">
-                  {member.name[0]}
-                </span>
-              )}
-            </div>
+            <MemberAvatar member={member} className="w-16 h-16 mb-2" />
             <span className="text-sm font-medium">{member.name}</span>
           </button>
         ))}
