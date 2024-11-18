@@ -25,67 +25,67 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { 
     id: '1', 
     name: 'Maria Higuera',
-    avatarUrl: '/avatars/1.jpg'
+    avatarUrl: '/avatars/1.jfif'
   },
   { 
     id: '2', 
     name: 'Christian Uribe',
-    avatarUrl: '/avatars/2.jpg'
+    avatarUrl: '/avatars/2.jfif'
   },
   { 
     id: '3', 
     name: 'Cristian Florez',
-    avatarUrl: '/avatars/3.jpg'
+    avatarUrl: '/avatars/3.jfif'
   },
   { 
     id: '4', 
     name: 'David Lopez',
-    avatarUrl: '/avatars/4.jpg'
+    avatarUrl: '/avatars/4.jfif'
   },
   { 
     id: '5', 
     name: 'Gustavo',
-    avatarUrl: '/avatars/5.jpg'
+    avatarUrl: '/avatars/5.jfif'
   },
   { 
     id: '6', 
     name: 'Karen',
-    avatarUrl: '/avatars/6.jpg'
+    avatarUrl: '/avatars/6.jfif'
   },
   { 
     id: '7', 
     name: 'Luciany',
-    avatarUrl: '/avatars/7.jpg'
+    avatarUrl: '/avatars/7.jfif'
   },
   { 
     id: '8', 
     name: 'Lucia',
-    avatarUrl: '/avatars/8.jpg'
+    avatarUrl: '/avatars/8.jfif'
   },
   { 
     id: '9', 
     name: 'Monica',
-    avatarUrl: '/avatars/9.jpg'
+    avatarUrl: '/avatars/9.jfif'
   },
   { 
     id: '10', 
     name: 'Johan',
-    avatarUrl: '/avatars/10.jpg'
+    avatarUrl: '/avatars/10.jfif'
   },
   { 
     id: '11', 
     name: 'Juan Rico',
-    avatarUrl: '/avatars/11.jpg'
+    avatarUrl: '/avatars/11.jfif'
   },
   { 
     id: '12', 
     name: 'Sebastian',
-    avatarUrl: '/avatars/12.jpg'
+    avatarUrl: '/avatars/12.jfif'
   },
   { 
     id: '13', 
     name: 'Nicolas',
-    avatarUrl: '/avatars/13.jpg'
+    avatarUrl: '/avatars/13.jfif'
   }
 ];
   
