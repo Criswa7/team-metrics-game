@@ -31,7 +31,7 @@ export interface TeamMember {
     { id: '8', name: 'Lucia' },
     { id: '9', name: 'Monica' },
     { id: '10', name: 'Johan' },
-    { id: '11', name: 'Sebastian Rico' },
+    { id: '11', name: 'Juan Rico' },
     { id: '12', name: 'Sebastian' },
     { id: '13', name: 'Nicolas' }
   ];
@@ -72,12 +72,12 @@ export interface TeamMember {
     },
     {
       id: 3,
-      fact: "Aprendí a programar porque quería hacer mods para Minecraft",
+      fact: "Trabaje como profesor de primaria y me echaron el día del profesor",
       correctMemberId: "4" // David
     },
     {
       id: 4,
-      fact: "Mi primer trabajo fue como personaje de mascota en un centro comercial",
+      fact: "En el colegio era futbolista semi profesional, llegué a hacer pruebas para un equipo chileno",
       correctMemberId: "5" // Gustavo
     },
     {
@@ -87,7 +87,7 @@ export interface TeamMember {
     },
     {
       id: 6,
-      fact: "Practiqué ballet durante 10 años antes de dedicarme a la tecnología",
+      fact: "Sé montar skate",
       correctMemberId: "7" // Luciany
     },
     {
