@@ -305,7 +305,7 @@ export default function WhoIsWho({ onGameComplete }: WhoIsWhoProps) {
       </div>
 
       <div className="bg-white rounded-lg p-6 shadow-md mb-8 transform transition-all duration-300 hover:shadow-lg">
-        <p className="text-xl text-gray-800 text-center">
+        <p className="text-xl text-black-800 text-center">
           {randomizedFacts[currentFact].fact}
         </p>
       </div>
